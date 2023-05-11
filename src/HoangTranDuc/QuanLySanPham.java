@@ -12,7 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuanLySanPham {
+
     private List<SanPham> SanPham;
+
+    public QuanLySanPham() {
+        SanPham = new ArrayList<>();
+    }
 
     public QuanLySanPham(List<SanPham> SanPham) {
         this.SanPham = SanPham;
@@ -25,5 +30,11 @@ public class QuanLySanPham {
     public void setSanPham(List<SanPham> SanPham) {
         this.SanPham = SanPham;
     }
-    
+
+    public void ThemSanPham(SanPham sp) {
+        SanPham.add(sp);
+    }
+    public void XoaSanPham(SanPham sp) {
+        SanPham.remove(sp);
+    }
 }

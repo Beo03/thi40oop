@@ -18,7 +18,7 @@ public class Application {
         accountManager.register(account1);
 
         // Kiểm tra đăng nhập
-        String username = "hoang1";
+        String username = "hoang";
         String password = "hoang1";
         if (accountManager.login(username, password)) {
             System.out.println("Đăng nhập thành công!");
