@@ -13,28 +13,37 @@ import java.util.List;
 
 public class QuanLySanPham {
 
-    private List<SanPham> SanPham;
+    private List<SanPham> DanhSachSanPham;
 
     public QuanLySanPham() {
-        SanPham = new ArrayList<>();
+        DanhSachSanPham = new ArrayList<>();
     }
 
-    public QuanLySanPham(List<SanPham> SanPham) {
-        this.SanPham = SanPham;
+    public QuanLySanPham(List<SanPham> DanhSachSanPham) {
+        this.DanhSachSanPham = DanhSachSanPham;
     }
 
     public List<SanPham> getSanPham() {
-        return SanPham;
+        return DanhSachSanPham;
     }
 
-    public void setSanPham(List<SanPham> SanPham) {
-        this.SanPham = SanPham;
+    public void setSanPham(List<SanPham> DanhSachSanPham) {
+        this.DanhSachSanPham = DanhSachSanPham;
     }
 
     public void ThemSanPham(SanPham sp) {
-        SanPham.add(sp);
+        DanhSachSanPham.add(sp);
     }
+
     public void XoaSanPham(SanPham sp) {
-        SanPham.remove(sp);
+        DanhSachSanPham.remove(sp);
+    }
+
+    public void capNhatSoLuong(int SoLuong, String TenSanPham) {
+        for (SanPham i : DanhSachSanPham) {
+            if (i.getTenSP().equals(TenSanPham)) {
+                i.setSoTon(i.getSoTon() - SoLuong);
+            }
+        }
     }
 }

@@ -13,34 +13,24 @@ import java.util.Date;
  */
 public class HoaDon {
 
-    private List<SanPham> SanPham;
-    private Float TongTien;
+    private List<ChiTietHoaDon> ChiTietHoaDon;
     private Date NgayLapHD;
     private String NguoiXuatHoaDon;
     private String KhachHang;
 
-    public HoaDon(List<SanPham> SanPham, Float TongTien, Date NgayLapHD, String NguoiXuatHoaDon, String KhachHang) {
-        this.SanPham = SanPham;
-        this.TongTien = TongTien;
+    public HoaDon(List<ChiTietHoaDon> ChiTietHoaDon, Date NgayLapHD, String NguoiXuatHoaDon, String KhachHang) {
+        this.ChiTietHoaDon = ChiTietHoaDon;
         this.NgayLapHD = NgayLapHD;
         this.NguoiXuatHoaDon = NguoiXuatHoaDon;
         this.KhachHang = KhachHang;
     }
 
-    public List<SanPham> getSanPham() {
-        return SanPham;
+    public List<ChiTietHoaDon> getSanPham() {
+        return ChiTietHoaDon;
     }
 
-    public void setSanPham(List<SanPham> SanPham) {
-        this.SanPham = SanPham;
-    }
-
-    public Float getTongTien() {
-        return TongTien;
-    }
-
-    public void setTongTien(Float TongTien) {
-        this.TongTien = TongTien;
+    public void setSanPham(List<ChiTietHoaDon> ChiTietHoaDon) {
+        this.ChiTietHoaDon = ChiTietHoaDon;
     }
 
     public Date getNgayLapHD() {
@@ -65,6 +55,14 @@ public class HoaDon {
 
     public void setKhachHang(String KhachHang) {
         this.KhachHang = KhachHang;
+    }
+
+    public int TongTien() {
+        int result = 0;
+        for (ChiTietHoaDon i : ChiTietHoaDon) {
+            result += i.ThanhTien();
+        }
+        return result;
     }
 
 }

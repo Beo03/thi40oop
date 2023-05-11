@@ -16,14 +16,26 @@ public class TestQuanLyHoaDon {
     public static void main(String[] args) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            List<SanPham> danhSachSanPham = new ArrayList<>();
-            danhSachSanPham.add(new SanPham("Bánh Mỳ", 11, 10000, 5000, sdf.parse("23/02/2023"), "VND"));
-            danhSachSanPham.add(new SanPham("Mỳ Tôm", 5, 5000, 2000, sdf.parse("23/05/2023"), "Hảo Hảo"));
+            List<SanPham> dsSanPham = new ArrayList<>();
+            dsSanPham.add(new SanPham("Bánh Mỳ", 11, 10000, 5000, sdf.parse("23/02/2023"), "VND"));
+            dsSanPham.add(new SanPham("Mỳ Tôm", 5, 5000, 2000, sdf.parse("23/05/2023"), "Hảo Hảo"));
+            dsSanPham.add(new SanPham("Bánh tráng", 20, 6000, 2000, sdf.parse("20/04/2023"), "VIX"));
+            dsSanPham.add(new SanPham("Trứng gà", 10, 3000, 1000, sdf.parse("10/03/2023"), "HPG"));
 
+            List<ChiTietHoaDon> dsChiTiet = new ArrayList<>();
+            dsChiTiet.add(new ChiTietHoaDon(2, "Bánh Mỳ"));
+            dsChiTiet.add(new ChiTietHoaDon(2, "Mỳ Tôm"));
+            dsChiTiet.add(new ChiTietHoaDon(2, "Bánh tráng"));
+            dsChiTiet.add(new ChiTietHoaDon(2, "Trứng gà"));
+
+            List<ChiTietHoaDon> dsChiTiet2 = new ArrayList<>();
+            dsChiTiet2.add(new ChiTietHoaDon(2, "Bánh tráng"));
+            dsChiTiet2.add(new ChiTietHoaDon(2, "Trứng gà"));
             // Tạo danh sách hoá đơn
+
             QuanLyHoaDon qlhd = new QuanLyHoaDon();
-            HoaDon hd = new HoaDon(danhSachSanPham, 15000.0f, sdf.parse("11/05/2023"), "Hoàng", "Hậu");
-            HoaDon hd2 = new HoaDon(danhSachSanPham, 20000.0f, sdf.parse("15/05/2023"), "Nam", "Nữ");
+            HoaDon hd = new HoaDon(dsChiTiet, sdf.parse("11/05/2023"), "Nghĩa", "Trang");
+            HoaDon hd2 = new HoaDon(dsChiTiet2, sdf.parse("15/05/2023"), "Hoàng", "Hậu");
 
             qlhd.ThemHoaDon(hd);
             qlhd.ThemHoaDon(hd2);
@@ -33,11 +45,10 @@ public class TestQuanLyHoaDon {
             for (HoaDon hoaDon : danhSachHoaDon) {
                 System.out.println("Thông tin hoá đơn:");
                 System.out.print("Danh sách sản phẩm: ");
-                for (SanPham sanPham : hoaDon.getSanPham()) {
-                    System.out.print(sanPham.getTenSP()+", ");
+                for (ChiTietHoaDon ct : hoaDon.getSanPham()) {
+                    System.out.print(ct.getTenSP()+", ");
                 }
                 System.out.println();
-                System.out.println("Tổng tiền: " + hoaDon.getTongTien());
                 System.out.println("Ngày lập hoá đơn: " + sdf.format(hoaDon.getNgayLapHD()));
                 System.out.println("Người xuất hoá đơn: " + hoaDon.getNguoiXuatHoaDon());
                 System.out.println("Khách hàng: " + hoaDon.getKhachHang());

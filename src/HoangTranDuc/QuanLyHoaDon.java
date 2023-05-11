@@ -33,25 +33,22 @@ public class QuanLyHoaDon {
         DanhSachHoaDon.add(hd);
     }
 
-    public void DoanhThu(int Thang, int Nam) {
-        Double DoanhThu;
-        DoanhThu = 0.0;
-        for (int i = 0; i < DanhSachHoaDon.size(); i++) {
+    public int DoanhThu(int Thang, int Nam) {
+        int DoanhThu = 0;
+        for (HoaDon i : DanhSachHoaDon) {
             try {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(DanhSachHoaDon.get(i).getNgayLapHD());
+                cal.setTime(i.getNgayLapHD());
                 int namNhap = cal.get(Calendar.YEAR);
                 int thangNhap = cal.get(Calendar.MONTH) + 1;
                 if (namNhap == Nam && thangNhap == Thang) {
-                    System.out.println("Ngày nhập vào có cùng tháng và năm với ngày hiện tại!");
-                } else {
-                    System.out.println("Ngày nhập vào không có cùng tháng và năm với ngày hiện tại!");
+                    DoanhThu += i.TongTien();
                 }
-
             } catch (Exception e) {
                 System.out.println("Không thể chuyển đổi ngày!");
             }
         }
+        return DoanhThu;
     }
+
 }

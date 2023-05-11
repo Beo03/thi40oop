@@ -12,12 +12,10 @@ public class ChiTietHoaDon {
 
     private int SoLuong;
     private String TenSP;
-    private SanPham ThanhTien;
 
-    public ChiTietHoaDon(int SoLuong, String TenSP, SanPham ThanhTien) {
+    public ChiTietHoaDon(int SoLuong, String TenSP) {
         this.SoLuong = SoLuong;
         this.TenSP = TenSP;
-        this.ThanhTien = ThanhTien;
     }
 
     public int getSoLuong() {
@@ -36,12 +34,15 @@ public class ChiTietHoaDon {
         this.TenSP = TenSP;
     }
 
-    public SanPham getThanhTien() {
-        return ThanhTien;
-    }
-
-    public void setThanhTien(SanPham ThanhTien) {
-        this.ThanhTien = ThanhTien;
+    public int ThanhTien() {
+        QuanLySanPham qlsp = new QuanLySanPham();
+        int result = 0;
+        for (var i = 0; i < qlsp.getSanPham().size(); i++) {
+            if (TenSP.equals(qlsp.getSanPham().get(i).getTenSP())) {
+                result = SoLuong * qlsp.getSanPham().get(i).getGiaBan();
+            }
+        }
+        return result;
     }
 
 }
