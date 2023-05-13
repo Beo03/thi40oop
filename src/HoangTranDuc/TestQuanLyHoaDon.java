@@ -22,38 +22,46 @@ public class TestQuanLyHoaDon {
             dsSanPham.add(new SanPham("Bánh tráng", 20, 6000, 2000, sdf.parse("20/04/2023"), "VIX"));
             dsSanPham.add(new SanPham("Trứng gà", 10, 3000, 1000, sdf.parse("10/03/2023"), "HPG"));
 
+            QuanLySanPham qlsp = new QuanLySanPham(dsSanPham);
+
+            List<DichVu> dsDichVu = new ArrayList<>();
+            dsDichVu.add(new DichVu("Cắt móng tay", 100000));
+            dsDichVu.add(new DichVu("Sơn móng tay", 150000));
+            dsDichVu.add(new DichVu("Nhỏ lông nách", 70000));
+
             List<ChiTietHoaDon> dsChiTiet = new ArrayList<>();
-            dsChiTiet.add(new ChiTietHoaDon(2, "Bánh Mỳ"));
-            dsChiTiet.add(new ChiTietHoaDon(2, "Mỳ Tôm"));
-            dsChiTiet.add(new ChiTietHoaDon(2, "Bánh tráng"));
-            dsChiTiet.add(new ChiTietHoaDon(2, "Trứng gà"));
+            dsChiTiet.add(new ChiTietHoaDon(2, new SanPham("Bánh Mỳ", 11, 10000, 5000, sdf.parse("23/02/2023"), "VND")));
+            dsChiTiet.add(new ChiTietHoaDon(2, new SanPham("Bánh tráng", 20, 6000, 2000, sdf.parse("20/04/2023"), "VIX")));
+            dsChiTiet.add(new ChiTietHoaDon(2, new SanPham("Mỳ Tôm", 5, 5000, 2000, sdf.parse("23/05/2023"), "Hảo Hảo")));
+            dsChiTiet.add(new ChiTietHoaDon(2, new SanPham("Trứng gà", 10, 3000, 1000, sdf.parse("10/03/2023"), "HPG")));
 
             List<ChiTietHoaDon> dsChiTiet2 = new ArrayList<>();
-            dsChiTiet2.add(new ChiTietHoaDon(2, "Bánh tráng"));
-            dsChiTiet2.add(new ChiTietHoaDon(2, "Trứng gà"));
+            dsChiTiet2.add(new ChiTietHoaDon(2, new SanPham("Bánh Mỳ", 11, 10000, 5000, sdf.parse("23/02/2023"), "VND")));
+            dsChiTiet2.add(new ChiTietHoaDon(2, new SanPham("Bánh tráng", 20, 6000, 2000, sdf.parse("20/04/2023"), "VIX")));
             // Tạo danh sách hoá đơn
 
             QuanLyHoaDon qlhd = new QuanLyHoaDon();
             HoaDon hd = new HoaDon(dsChiTiet, sdf.parse("11/05/2023"), "Nghĩa", "Trang");
-            HoaDon hd2 = new HoaDon(dsChiTiet2, sdf.parse("15/05/2023"), "Hoàng", "Hậu");
+            HoaDon hd2 = new HoaDon(dsChiTiet2, dsDichVu, sdf.parse("15/05/2023"), "Hoàng", "Hậu");
 
             qlhd.ThemHoaDon(hd);
             qlhd.ThemHoaDon(hd2);
 
             List<HoaDon> danhSachHoaDon = qlhd.getHoaDon();
-            System.out.println("Danh sách hoá đơn:");
-            for (HoaDon hoaDon : danhSachHoaDon) {
-                System.out.println("Thông tin hoá đơn:");
-                System.out.print("Danh sách sản phẩm: ");
-                for (ChiTietHoaDon ct : hoaDon.getSanPham()) {
-                    System.out.print(ct.getTenSP()+", ");
-                }
-                System.out.println();
-                System.out.println("Ngày lập hoá đơn: " + sdf.format(hoaDon.getNgayLapHD()));
-                System.out.println("Người xuất hoá đơn: " + hoaDon.getNguoiXuatHoaDon());
-                System.out.println("Khách hàng: " + hoaDon.getKhachHang());
-                System.out.println();
-            }
+            System.out.println("Danh sách hoá đơn:" + hd2.TongTien());
+            System.out.println();
+//            for (HoaDon hoaDon : danhSachHoaDon) {
+//                System.out.println("Thông tin hoá đơn:");
+//                System.out.print("Danh sách sản phẩm: ");
+//                for (ChiTietHoaDon ct : hoaDon.getSanPham()) {
+//                    System.out.print(ct.getTenSP() + ", ");
+//                }
+//                System.out.println();
+//                System.out.println("Ngày lập hoá đơn: " + sdf.format(hoaDon.getNgayLapHD()));
+//                System.out.println("Người xuất hoá đơn: " + hoaDon.getNguoiXuatHoaDon());
+//                System.out.println("Khách hàng: " + hoaDon.getKhachHang());
+//                System.out.println();
+//            }
         } catch (ParseException ex) {
             Logger.getLogger(TestQuanLyHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }

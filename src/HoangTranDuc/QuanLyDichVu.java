@@ -26,5 +26,5 @@ public class QuanLyDichVu {
     public void setDichVu(List<DichVu> DichVu) {
         this.DichVu = DichVu;
     }
-
+    
 }

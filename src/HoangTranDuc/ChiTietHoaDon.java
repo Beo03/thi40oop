@@ -11,11 +11,11 @@ package HoangTranDuc;
 public class ChiTietHoaDon {
 
     private int SoLuong;
-    private String TenSP;
+    private SanPham TenSP;
 
-    public ChiTietHoaDon(int SoLuong, String TenSP) {
+    public ChiTietHoaDon(int SoLuong, SanPham SanPham) {
         this.SoLuong = SoLuong;
-        this.TenSP = TenSP;
+        this.TenSP = SanPham;
     }
 
     public int getSoLuong() {
@@ -26,23 +26,19 @@ public class ChiTietHoaDon {
         this.SoLuong = SoLuong;
     }
 
-    public String getTenSP() {
+    public SanPham getTenSP() {
         return TenSP;
     }
 
-    public void setTenSP(String TenSP) {
+    public void setTenSP(SanPham TenSP) {
         this.TenSP = TenSP;
     }
 
     public int ThanhTien() {
-        QuanLySanPham qlsp = new QuanLySanPham();
-        int result = 0;
-        for (var i = 0; i < qlsp.getSanPham().size(); i++) {
-            if (TenSP.equals(qlsp.getSanPham().get(i).getTenSP())) {
-                result = SoLuong * qlsp.getSanPham().get(i).getGiaBan();
-            }
-        }
-        return result;
+        
+        return SoLuong*TenSP.getGiaBan();
     }
+
+
 
 }

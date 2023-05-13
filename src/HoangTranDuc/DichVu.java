@@ -11,9 +11,9 @@ package HoangTranDuc;
 public class DichVu {
 
     private String TenDichVu;
-    private Float GiaThanh;
+    private int GiaThanh;
 
-    public DichVu(String TenDichVu, Float GiaThanh) {
+    public DichVu(String TenDichVu, int GiaThanh) {
         this.TenDichVu = TenDichVu;
         this.GiaThanh = GiaThanh;
     }
@@ -26,11 +26,11 @@ public class DichVu {
         this.TenDichVu = TenDichVu;
     }
 
-    public Float getGiaThanh() {
+    public int getGiaThanh() {
         return GiaThanh;
     }
 
-    public void setGiaThanh(Float GiaThanh) {
+    public void setGiaThanh(int GiaThanh) {
         this.GiaThanh = GiaThanh;
     }
 

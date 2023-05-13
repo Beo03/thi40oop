@@ -4,7 +4,7 @@
  */
 package HoangTranDuc;
 
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -32,7 +32,8 @@ public class QuanLyHoaDon {
     public void ThemHoaDon(HoaDon hd) {
         DanhSachHoaDon.add(hd);
     }
-
+    
+    
     public int DoanhThu(int Thang, int Nam) {
         int DoanhThu = 0;
         for (HoaDon i : DanhSachHoaDon) {
