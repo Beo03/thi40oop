@@ -4,24 +4,29 @@
  */
 package HoangTranDuc;
 
+import java.util.List;
+
 /**
  *
  * @author DucHoang
  */
 public class DonDatHang {
+
     private String TenKhachHang;
     private int SDT;
     private String DiaChi;
-    private String TenSanPham;
+    private List<SanPham> dsSanPham;
     private int SoLuong;
 
-    public DonDatHang(String TenKhachHang, int SDT, String DiaChi, String TenSanPham, int SoLuong) {
+    public DonDatHang(String TenKhachHang, int SDT, String DiaChi, List<SanPham> dsSanPham, int SoLuong) {
         this.TenKhachHang = TenKhachHang;
         this.SDT = SDT;
         this.DiaChi = DiaChi;
-        this.TenSanPham = TenSanPham;
+        this.dsSanPham = dsSanPham;
         this.SoLuong = SoLuong;
     }
+
+    
 
     public String getTenKhachHang() {
         return TenKhachHang;
@@ -47,13 +52,15 @@ public class DonDatHang {
         this.DiaChi = DiaChi;
     }
 
-    public String getTenSanPham() {
-        return TenSanPham;
+    public List<SanPham> getDsSanPham() {
+        return dsSanPham;
     }
 
-    public void setTenSanPham(String TenSanPham) {
-        this.TenSanPham = TenSanPham;
+    public void setDsSanPham(List<SanPham> dsSanPham) {
+        this.dsSanPham = dsSanPham;
     }
+
+    
 
     public int getSoLuong() {
         return SoLuong;
@@ -62,5 +69,5 @@ public class DonDatHang {
     public void setSoLuong(int SoLuong) {
         this.SoLuong = SoLuong;
     }
-    
+
 }

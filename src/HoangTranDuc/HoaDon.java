@@ -27,7 +27,7 @@ public class HoaDon {
         this.KhachHang = KhachHang;
     }
 
-    public HoaDon(Date NgaapHD, List<DichVu> listDichVu, String NguoiXuatHoaDon, String KhachHang) {
+    public HoaDon(Date NgayLapHD, List<DichVu> listDichVu, String NguoiXuatHoaDon, String KhachHang) {
         this.listDichVu = listDichVu;
         this.NgayLapHD = NgayLapHD;
         this.NguoiXuatHoaDon = NguoiXuatHoaDon;
@@ -41,12 +41,20 @@ public class HoaDon {
         this.KhachHang = KhachHang;
     }
 
-    public List<ChiTietHoaDon> getSanPham() {
+    public List<ChiTietHoaDon> getChiTietHoaDon() {
         return ChiTietHoaDon;
     }
 
-    public void setSanPham(List<ChiTietHoaDon> ChiTietHoaDon) {
+    public void setChiTietHoaDon(List<ChiTietHoaDon> ChiTietHoaDon) {
         this.ChiTietHoaDon = ChiTietHoaDon;
+    }
+
+    public List<DichVu> getListDichVu() {
+        return listDichVu;
+    }
+
+    public void setListDichVu(List<DichVu> listDichVu) {
+        this.listDichVu = listDichVu;
     }
 
     public Date getNgayLapHD() {
@@ -72,7 +80,7 @@ public class HoaDon {
     public void setKhachHang(String KhachHang) {
         this.KhachHang = KhachHang;
     }
-    
+
     public int TongTien() {
         int result = 0;
         if (listDichVu != null) {

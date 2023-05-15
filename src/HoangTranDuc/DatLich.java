@@ -9,18 +9,19 @@ package HoangTranDuc;
  * @author DucHoang
  */
 import java.util.Date;
+import java.util.List;
 
 public class DatLich {
 
     private Date ThoiGian;
     private String TenKhachHang;
-    private String TenDichVu;
+    private List<DichVu> dsDichVu;
     private int SDT;
 
-    public DatLich(Date ThoiGian, String TenKhachHang, String TenDichVu, int SDT) {
+    public DatLich(Date ThoiGian, String TenKhachHang, List<DichVu> dsDichVu, int SDT) {
         this.ThoiGian = ThoiGian;
         this.TenKhachHang = TenKhachHang;
-        this.TenDichVu = TenDichVu;
+        this.dsDichVu = dsDichVu;
         this.SDT = SDT;
     }
 
@@ -40,12 +41,12 @@ public class DatLich {
         this.TenKhachHang = TenKhachHang;
     }
 
-    public String getTenDichVu() {
-        return TenDichVu;
+    public List<DichVu> getDsDichVu() {
+        return dsDichVu;
     }
 
-    public void setTenDichVu(String TenDichVu) {
-        this.TenDichVu = TenDichVu;
+    public void setDsDichVu(List<DichVu> dsDichVu) {
+        this.dsDichVu = dsDichVu;
     }
 
     public int getSDT() {

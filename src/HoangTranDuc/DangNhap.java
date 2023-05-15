@@ -10,10 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Scanner;
 
-public class TestQuanLyHoaDon {
+/**
+ *
+ * @author DucHoang
+ */
+public class DangNhap {
 
-    public static void main(String[] args) {
+    static Scanner sc = new Scanner(System.in);
+
+    public static void kiemTraHD() {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             List<SanPham> dsSanPham = new ArrayList<>();
@@ -23,7 +30,7 @@ public class TestQuanLyHoaDon {
             dsSanPham.add(new SanPham("Trứng gà", 10, 3000, 1000, sdf.parse("10/03/2023"), "HPG"));
 
             QuanLySanPham qlsp = new QuanLySanPham(dsSanPham);
-            
+
             List<DichVu> dsDichVu = new ArrayList<>();
             dsDichVu.add(new DichVu("Cắt móng tay", 100000));
             dsDichVu.add(new DichVu("Sơn móng tay", 150000));
@@ -79,4 +86,75 @@ public class TestQuanLyHoaDon {
             Logger.getLogger(TestQuanLyHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    private static void menu() {
+        System.out.println("1. Danh sách hoá đơn");
+//        System.out.println("2. Add product");
+//        System.out.println("3. Add travel");
+//        System.out.println("4. Add customer");
+//        System.out.println("5. Show all staffs");
+//        System.out.println("6. Show all products");
+//        System.out.println("7. Show all travels");
+//        System.out.println("8. Show all customers");
+        System.out.println("9. Exit");
+        int choice = sc.nextInt();
+        menu(choice);
+    }
+
+    private static void menu(int choice) {
+        int i = 0;
+        String lable = "";
+        switch (choice) {
+            case 1 -> {
+                kiemTraHD();
+            }
+            case 2 -> {
+
+            }
+            case 3 -> {
+
+            }
+            case 4 -> {
+
+            }
+            case 5 -> {
+
+            }
+            case 6 -> {
+
+            }
+            case 7 -> {
+
+            }
+            case 8 -> {
+
+            }
+            default ->
+                System.exit(0);
+        }
+    }
+
+    public static void main(String[] args) {
+        QuanLyUser accountManager = new QuanLyUser();
+        // Đăng ký tài khoản
+        User account1 = new User("Hoàng", "20/3/2003", 123456789, "NV001", "hoang1");
+        User account2 = new User("Kiệt", "10/3/2003", 987654321, "KH001", "Kiet1");
+
+        accountManager.register(account1);
+        accountManager.register(account2);
+        // Kiểm tra đăng nhập
+        System.out.print("Tên đăng nhập: ");
+        String userName = sc.nextLine();
+        System.out.print("Nhập mật khẩu: ");
+        String matKhau = sc.nextLine();
+        if (accountManager.login(userName, matKhau)) {
+            
+            while (true) {
+                menu();
+            }
+        } else {
+            System.out.println("Tên đăng nhập hoặc mật khẩu không chính xác!");
+        }
+    }
+
 }
